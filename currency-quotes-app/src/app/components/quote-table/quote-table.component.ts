@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, input, InputSignal, Signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Signal} from '@angular/core';
 import {Rate} from '../../interfaces/rate.interface';
 import {Meta} from '@angular/platform-browser';
 import {DatePipe} from '@angular/common';
