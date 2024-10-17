@@ -1,4 +1,3 @@
-import { NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent } from "@ng-doc/app";
 import {Component, Signal} from '@angular/core';
 import {QuoteTableComponent} from "./components/quote-table/quote-table.component";
 import {Rate} from "./interfaces/rate.interface";
@@ -11,7 +10,7 @@ import {IState} from "./interfaces/state.interface";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [QuoteTableComponent, NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent],
+  imports: [QuoteTableComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {

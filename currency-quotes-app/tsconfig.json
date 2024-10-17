@@ -3,12 +3,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@ng-doc/generated": [
-        "./ng-doc/currency-quotes-app/index.ts"
-      ],
-      "@ng-doc/generated/*": [
-        "./ng-doc/currency-quotes-app/*"
-      ]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

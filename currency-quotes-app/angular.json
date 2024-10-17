@@ -15,58 +15,22 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@ng-doc/builder:application",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/currency-quotes-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": [],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "node_modules/@ng-doc/app/assets",
-                "output": "assets/ng-doc/app"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@ng-doc/ui-kit/assets",
-                "output": "assets/ng-doc/ui-kit"
-              },
-              {
-                "glob": "**/*",
-                "input": "ng-doc/currency-quotes-app/assets",
-                "output": "assets/ng-doc"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@ng-doc/app/assets",
-                "output": "assets/ng-doc/app"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@ng-doc/ui-kit/assets",
-                "output": "assets/ng-doc/ui-kit"
-              },
-              {
-                "glob": "**/*",
-                "input": "ng-doc/currency-quotes-app/assets",
-                "output": "assets/ng-doc"
-              },
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "node_modules/@ng-doc/app/styles/global.css",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "@ng-doc/core"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -93,7 +57,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@ng-doc/builder:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "currency-quotes-app:build:production"
