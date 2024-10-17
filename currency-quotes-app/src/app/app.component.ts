@@ -1,13 +1,27 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent } from "@ng-doc/app";
+import {Component, Signal} from '@angular/core';
+import {QuoteTableComponent} from "./components/quote-table/quote-table.component";
+import {Rate} from "./interfaces/rate.interface";
+import {toSignal} from "@angular/core/rxjs-interop";
+import {selectAllQuotes} from "./selectors/qoutes.selector";
+import {Meta} from "@angular/platform-browser";
+import {Store} from "@ngrx/store";
+import {IState} from "./interfaces/state.interface";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [QuoteTableComponent, NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'currency-quotes-app';
+  public quotes: Signal<Rate[]> = toSignal(this.store.select(selectAllQuotes), {initialValue: []});
+
+  constructor(private meta: Meta, private store: Store<IState>) {
+    this.setMetaDescription();
+  }
+
+  private setMetaDescription() {
+    this.meta.updateTag({name: 'description', content: 'Some text'}); // this need for SEO
+  }
 }
